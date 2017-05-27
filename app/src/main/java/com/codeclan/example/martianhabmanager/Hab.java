@@ -1,3 +1,5 @@
+package com.codeclan.example.martianhabmanager;
+
 /**
  * Created by user on 27/05/2017.
  */
@@ -12,7 +14,12 @@ public class Hab {
         this.size = size;
     }
 
+
     public String getHabName() {
         return this.habName;
+    }
+
+    public int getHabSize() {
+        return size;
     }
 }
