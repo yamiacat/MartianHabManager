@@ -34,7 +34,7 @@ public class HabTest {
     }
 
     @Test
-    public void habCountAnimals() {
+    public void canCountHabAnimals() {
         Hab hab = new Hab("Capricorn One", 100);
         Animal animal = new Animal(Species.ARESDOGE);
         Animal animal2 = new Animal(Species.MARTIAN_LOP);
@@ -46,5 +46,73 @@ public class HabTest {
         assertEquals(3, hab.animalCount());
     }
 
-    
+    @Test
+    public void canGetUnusedSpace() {
+        Hab hab = new Hab("Capricorn One", 100);
+        Animal animal = new Animal(Species.ARESDOGE);
+        Animal animal2 = new Animal(Species.MARTIAN_LOP);
+        Animal animal3 = new Animal(Species.RED_DWARF);
+        hab.acceptAnimal(animal);
+        hab.acceptAnimal(animal2);
+        hab.acceptAnimal(animal3);
+
+        assertEquals(93, hab.remainingSpace());
+    }
+
+    @Test
+    public void cantOverfillHab() {
+        Hab hab = new Hab("MicroDome", 5);
+        Animal animal = new Animal(Species.ARESDOGE);
+        Animal animal2 = new Animal(Species.MARTIAN_LOP);
+        Animal animal3 = new Animal(Species.RED_DWARF);
+        hab.acceptAnimal(animal);
+        hab.acceptAnimal(animal2);
+        hab.acceptAnimal(animal3);
+
+        assertEquals(2, hab.animalCount());
+    }
+
+
+    @Test
+    public void canFindAnimalsBySpecies() {
+        Hab hab = new Hab("Capricorn One", 100);
+        Animal animal = new Animal(Species.ARESDOGE);
+        Animal animal2 = new Animal(Species.MARTIAN_LOP);
+        Animal animal3 = new Animal(Species.RED_DWARF);
+        hab.acceptAnimal(animal);
+        hab.acceptAnimal(animal2);
+        hab.acceptAnimal(animal3);
+
+
+    }
+
+
+    @Test
+    public void canRemoveAnimalsBySpecies() {
+        Hab hab = new Hab("Capricorn One", 100);
+        Animal animal = new Animal(Species.ARESDOGE);
+        Animal animal2 = new Animal(Species.MARTIAN_LOP);
+        Animal animal3 = new Animal(Species.RED_DWARF);
+        hab.acceptAnimal(animal);
+        hab.acceptAnimal(animal2);
+        hab.acceptAnimal(animal3);
+        hab.removeSpecies(Species.ARESDOGE.getSpeciesDescription());
+
+        assertEquals(2, hab.animalCount());
+    }
+
+    @Test
+    public void canRemoveAnimalsBySpeciesNotHardcoded() {
+        Hab hab = new Hab("Capricorn One", 100);
+        Animal animal = new Animal(Species.ARESDOGE);
+        Animal animal2 = new Animal(Species.MARTIAN_LOP);
+        Animal animal3 = new Animal(Species.MARTIAN_LOP);
+        hab.acceptAnimal(animal);
+        hab.acceptAnimal(animal2);
+        hab.acceptAnimal(animal3);
+        hab.removeSpecies(Species.MARTIAN_LOP.getSpeciesDescription());
+
+        assertEquals(1, hab.animalCount());
+    }
+
 }
