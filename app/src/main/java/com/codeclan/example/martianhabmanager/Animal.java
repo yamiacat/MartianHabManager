@@ -5,6 +5,8 @@ package com.codeclan.example.martianhabmanager;
  */
 
 public class Animal {
+    private FakeDice dice = new FakeDice(1);
+    private DefaultNamer namer = new DefaultNamer(dice);
     private String animalName;
     private Species species;
     private int spaceRequired;
@@ -19,10 +21,15 @@ public class Animal {
 
     public Animal(Species species) {
         this.species = species;
+        this.animalName = namer.getDefaultName();
 
     }
 
     public String getSpecies() {
         return this.species.getSpeciesDescription();
+    }
+
+    public String getAnimalName() {
+        return this.animalName;
     }
 }

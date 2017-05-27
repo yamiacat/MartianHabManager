@@ -15,5 +15,12 @@ public class AnimalTest {
         assertEquals("Ares Doge", animal.getSpecies());
     }
 
+    @Test
+    public void animalHasDefaultName() {
+        Animal animal = new Animal(Species.ARESDOGE);
+        assertEquals("Specimen 000-Hexagon", animal.getAnimalName());
+    }
+
+    
 
 }
