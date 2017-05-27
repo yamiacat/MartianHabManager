@@ -5,18 +5,25 @@ package com.codeclan.example.martianhabmanager;
  */
 
 public enum Species {
-    RED_DWARF("Red Dwarf"),
-    MARTIAN_LOP("Martian Lop"),
-    ARESDOGE("Ares Doge");
+    RED_DWARF("Red Dwarf", 1),
+    MARTIAN_LOP("Martian Lop", 2),
+    ARESDOGE("Ares Doge", 4);
 
     private final String speciesDescription;
+    private final int speciesSpaceRequired;
 
-    private Species(String description) {
+    private Species(String description, int spaceRequired) {
         this.speciesDescription = description;
+        this.speciesSpaceRequired = spaceRequired;
+
     }
 
     public String getSpeciesDescription() {
         return this.speciesDescription;
+    }
+
+    public int getSpeciesSpaceRequired() {
+        return this.speciesSpaceRequired;
     }
 
 }

@@ -25,4 +25,26 @@ public class HabTest {
         assertEquals(100, hab.getHabSize());
     }
 
+    @Test
+    public void habCanAcceptAnimal() {
+        Hab hab = new Hab("Capricorn One", 100);
+        Animal animal = new Animal(Species.ARESDOGE);
+        hab.acceptAnimal(animal);
+        assertEquals(1, hab.animalCount());
+    }
+
+    @Test
+    public void habCountAnimals() {
+        Hab hab = new Hab("Capricorn One", 100);
+        Animal animal = new Animal(Species.ARESDOGE);
+        Animal animal2 = new Animal(Species.MARTIAN_LOP);
+        Animal animal3 = new Animal(Species.RED_DWARF);
+        hab.acceptAnimal(animal);
+        hab.acceptAnimal(animal2);
+        hab.acceptAnimal(animal3);
+
+        assertEquals(3, hab.animalCount());
+    }
+
+    
 }

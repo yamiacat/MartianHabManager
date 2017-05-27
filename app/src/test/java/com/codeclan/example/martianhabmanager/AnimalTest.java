@@ -21,6 +21,17 @@ public class AnimalTest {
         assertEquals("Specimen 000-Hexagon", animal.getAnimalName());
     }
 
-    
+    @Test
+    public void animalNameCanBeSet() {
+        Animal animal = new Animal(Species.ARESDOGE);
+        animal.setAnimalName("Fluffkins");
+        assertEquals("Fluffkins", animal.getAnimalName());
+    }
+
+    @Test
+    public void canGetAnimalSpaceRequired() {
+        Animal animal = new Animal(Species.ARESDOGE);
+        assertEquals(4, animal.getSpaceRequired());
+    }
 
 }

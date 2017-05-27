@@ -22,6 +22,7 @@ public class Animal {
     public Animal(Species species) {
         this.species = species;
         this.animalName = namer.getDefaultName();
+        this.spaceRequired = species.getSpeciesSpaceRequired();
 
     }
 
@@ -31,5 +32,13 @@ public class Animal {
 
     public String getAnimalName() {
         return this.animalName;
+    }
+
+    public void setAnimalName(String name) {
+        this.animalName = name;
+    }
+
+    public int getSpaceRequired() {
+        return this.spaceRequired;
     }
 }
