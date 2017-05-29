@@ -8,18 +8,17 @@ public class Animal {
     private FakeDice dice = new FakeDice(1);
     private DefaultNamer namer = new DefaultNamer(dice);
     private String animalName;
-    private Species species;
+    private AnimalSpecies species;
     private int spaceRequired;
 //    private int maxAge;
 //    private int age;
 //    private String maturity;
 //    private int fecundity;
 //    private int o2Required;
-
 //    private int nutritionalValue;
 
 
-    public Animal(Species species) {
+    public Animal(AnimalSpecies species) {
         this.species = species;
         this.animalName = namer.getDefaultName();
         this.spaceRequired = species.getSpeciesSpaceRequired();

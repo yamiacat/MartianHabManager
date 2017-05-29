@@ -16,6 +16,13 @@ public class Hab {
 
     public Hab(String habName, int size) {
         this.habName = habName;
+        this.size = calculateHabSize(size);
+        this.structuralStrength = 110 - this.size;
+        this.animalPopulation = new ArrayList<Animal>();
+
+    }
+
+    private int calculateHabSize(int size) {
         int habSize = 0;
         if (size > 100) {
             habSize = 100;
@@ -26,10 +33,7 @@ public class Hab {
         else {
             habSize = size;
         }
-        this.size = habSize;
-        this.structuralStrength = 110 - this.size;
-        this.animalPopulation = new ArrayList<Animal>();
-
+        return habSize;
     }
 
 

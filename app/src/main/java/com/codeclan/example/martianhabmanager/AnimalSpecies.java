@@ -4,7 +4,7 @@ package com.codeclan.example.martianhabmanager;
  * Created by user on 27/05/2017.
  */
 
-public enum Species {
+public enum AnimalSpecies {
     RED_DWARF("Red Dwarf", 1),
     MARTIAN_LOP("Martian Lop", 2),
     ARESDOGE("Ares Doge", 4);
@@ -12,7 +12,7 @@ public enum Species {
     private final String speciesDescription;
     private final int speciesSpaceRequired;
 
-    private Species(String description, int spaceRequired) {
+    private AnimalSpecies(String description, int spaceRequired) {
         this.speciesDescription = description;
         this.speciesSpaceRequired = spaceRequired;
 
