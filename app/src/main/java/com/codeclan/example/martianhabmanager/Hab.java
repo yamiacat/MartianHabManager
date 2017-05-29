@@ -11,12 +11,25 @@ public class Hab {
 
     private String habName;
     private int size;
+    private int structuralStrength;
     private ArrayList<Animal> animalPopulation;
 
     public Hab(String habName, int size) {
         this.habName = habName;
-        this.size = size;
+        int habSize = 0;
+        if (size > 100) {
+            habSize = 100;
+        }
+        else if (size < 20) {
+            habSize = 20;
+        }
+        else {
+            habSize = size;
+        }
+        this.size = habSize;
+        this.structuralStrength = 110 - this.size;
         this.animalPopulation = new ArrayList<Animal>();
+
     }
 
 
@@ -57,5 +70,9 @@ public class Hab {
         }
         this.animalPopulation.removeAll(soughtAnimals);
         return soughtAnimals;
+    }
+
+    public int getStructuralStrength() {
+        return structuralStrength;
     }
 }

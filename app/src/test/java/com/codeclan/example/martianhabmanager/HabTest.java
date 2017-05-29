@@ -26,6 +26,12 @@ public class HabTest {
     }
 
     @Test
+    public void habStructuralStrengthSetAutomatically() {
+        Hab hab = new Hab("Capricorn One", 100);
+        assertEquals(10, hab.getStructuralStrength());
+    }
+
+    @Test
     public void habCanAcceptAnimal() {
         Hab hab = new Hab("Capricorn One", 100);
         Animal animal = new Animal(Species.ARESDOGE);
@@ -63,13 +69,20 @@ public class HabTest {
     public void cantOverfillHab() {
         Hab hab = new Hab("MicroDome", 5);
         Animal animal = new Animal(Species.ARESDOGE);
-        Animal animal2 = new Animal(Species.MARTIAN_LOP);
-        Animal animal3 = new Animal(Species.RED_DWARF);
+        Animal animal2 = new Animal(Species.ARESDOGE);
+        Animal animal3 = new Animal(Species.ARESDOGE);
+        Animal animal4 = new Animal(Species.ARESDOGE);
+        Animal animal5 = new Animal(Species.ARESDOGE);
+        Animal animal6 = new Animal(Species.ARESDOGE);
+
         hab.acceptAnimal(animal);
         hab.acceptAnimal(animal2);
         hab.acceptAnimal(animal3);
+        hab.acceptAnimal(animal4);
+        hab.acceptAnimal(animal5);
+        hab.acceptAnimal(animal6);
 
-        assertEquals(2, hab.animalCount());
+        assertEquals(5, hab.animalCount());
     }
 
 
