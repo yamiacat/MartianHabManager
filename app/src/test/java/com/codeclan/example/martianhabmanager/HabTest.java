@@ -2,6 +2,8 @@ package com.codeclan.example.martianhabmanager;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 /**
@@ -36,7 +38,7 @@ public class HabTest {
     }
 
     @Test
-    public void habSize100Minimum() {
+    public void habSize100Maximum() {
         Hab hab = new Hab("Capricorn Twelvety", 200);
         assertEquals(100, hab.getHabSize());
     }
@@ -48,6 +50,29 @@ public class HabTest {
         Animal animal = new Animal(AnimalSpecies.ARESDOGE);
         hab.acceptAnimal(animal);
         assertEquals(1, hab.animalCount());
+    }
+
+    @Test
+    public void habCanAcceptBatchOfAnimals() {
+        Hab hab = new Hab("Capricorn One", 100);
+        Animal animal = new Animal(AnimalSpecies.ARESDOGE);
+        Animal animal2 = new Animal(AnimalSpecies.ARESDOGE);
+        Animal animal3 = new Animal(AnimalSpecies.ARESDOGE);
+        ArrayList<Animal> batch = new ArrayList<>();
+        batch.add(animal);
+        batch.add(animal2);
+        batch.add(animal3);
+        hab.acceptAnimalBatch(batch);
+
+        assertEquals(3, hab.animalCount());
+    }
+
+    @Test
+    public void canAcceptCropPlanting() {
+        Hab hab = new Hab("Capricorn One", 100);
+        Crop crop = new Crop(CropSpecies.DEIMOS_LETTUCE, 10);
+        hab.plantCrops(crop);
+        assertEquals(90, hab.remainingSpace());
     }
 
     @Test
@@ -94,20 +119,6 @@ public class HabTest {
         hab.acceptAnimal(animal6);
 
         assertEquals(5, hab.animalCount());
-    }
-
-
-    @Test
-    public void canFindAnimalsBySpecies() {
-        Hab hab = new Hab("Capricorn One", 100);
-        Animal animal = new Animal(AnimalSpecies.ARESDOGE);
-        Animal animal2 = new Animal(AnimalSpecies.MARTIAN_LOP);
-        Animal animal3 = new Animal(AnimalSpecies.RED_DWARF);
-        hab.acceptAnimal(animal);
-        hab.acceptAnimal(animal2);
-        hab.acceptAnimal(animal3);
-
-
     }
 
 

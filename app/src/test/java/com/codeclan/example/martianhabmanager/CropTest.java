@@ -20,5 +20,5 @@ public class CropTest {
         Crop crop = new Crop(CropSpecies.PHOBOSHROOMS, 1);
         assertEquals(1, crop.getQuantity());
     }
-    
+
 }

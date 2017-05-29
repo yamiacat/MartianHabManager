@@ -5,10 +5,10 @@ package com.codeclan.example.martianhabmanager;
  */
 
 public enum CropSpecies {
-    PHOBOSHROOMS("Phoboshrooms", 10),
-    WHITE_FLUFF("White Fluff", 7),
-    RED_ALGAE("Red Algae", 4),
-    DEIMOS_LETTUCE("Deimos Lettuce", 2);
+    PHOBOSHROOMS("Phoboshrooms", 100),
+    WHITE_FLUFF("White Fluff", 70),
+    RED_ALGAE("Red Algae", 40),
+    DEIMOS_LETTUCE("Deimos Lettuce", 20);
 
 
     private final String speciesDescription;

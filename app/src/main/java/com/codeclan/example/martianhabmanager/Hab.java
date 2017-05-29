@@ -13,12 +13,14 @@ public class Hab {
     private int size;
     private int structuralStrength;
     private ArrayList<Animal> animalPopulation;
+    private ArrayList<Crop> cropsGrowing;
 
     public Hab(String habName, int size) {
         this.habName = habName;
         this.size = calculateHabSize(size);
         this.structuralStrength = 110 - this.size;
         this.animalPopulation = new ArrayList<Animal>();
+        this.cropsGrowing = new ArrayList<Crop>();
 
     }
 
@@ -61,6 +63,10 @@ public class Hab {
         for (Animal animal : animalPopulation) {
             remainingSpace -= animal.getSpaceRequired();
         }
+        for (Crop crop : cropsGrowing) {
+            remainingSpace -= crop.getQuantity();
+        }
+
         return remainingSpace;
     }
 
@@ -78,5 +84,17 @@ public class Hab {
 
     public int getStructuralStrength() {
         return structuralStrength;
+    }
+
+    public void acceptAnimalBatch(ArrayList<Animal> batch) {
+        for (Animal animal : batch) {
+            this.animalPopulation.add(animal);
+        }
+    }
+
+    public void plantCrops(Crop crop) {
+        if (this.remainingSpace() >= crop.getQuantity()) {
+            this.cropsGrowing.add(crop);
+        }
     }
 }
