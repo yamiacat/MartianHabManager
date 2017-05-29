@@ -55,7 +55,6 @@ public class Hab {
                 soughtAnimals.add(animal);
             }
         }
-
         this.animalPopulation.removeAll(soughtAnimals);
         return soughtAnimals;
     }
