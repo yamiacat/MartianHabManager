@@ -11,39 +11,39 @@ public class AnimalTest {
 
     @Test
     public void animalHasSpecies() {
-        Animal animal = new Animal(AnimalSpecies.ARESDOGE);
-        assertEquals("Ares Doge", animal.getSpecies());
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        assertEquals("Ares Doge", carnivore.getSpecies());
     }
 
     @Test
     public void animalHasDefaultName() {
-        Animal animal = new Animal(AnimalSpecies.ARESDOGE);
-        assertEquals("Specimen 000-Hexagon", animal.getAnimalName());
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        assertEquals("Specimen 000-Hexagon", carnivore.getAnimalName());
     }
 
     @Test
     public void animalNameCanBeSet() {
-        Animal animal = new Animal(AnimalSpecies.ARESDOGE);
-        animal.setAnimalName("Fluffkins");
-        assertEquals("Fluffkins", animal.getAnimalName());
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        carnivore.setAnimalName("Fluffkins");
+        assertEquals("Fluffkins", carnivore.getAnimalName());
     }
 
     @Test
     public void canGetAnimalSpaceRequired() {
-        Animal animal = new Animal(AnimalSpecies.ARESDOGE);
-        assertEquals(4, animal.getSpaceRequired());
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        assertEquals(4, carnivore.getSpaceRequired());
     }
 
     @Test
     public void animalsStartWithThreeHealth() {
-        Animal animal = new Animal(AnimalSpecies.ARESDOGE);
-        assertEquals(3, animal.getHealth());
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        assertEquals(3, carnivore.getHealth());
     }
 
     @Test
     public void animalsStartWithHealthyStatus() {
-        Animal animal = new Animal(AnimalSpecies.ARESDOGE);
-        assertEquals("healthy", animal.getHealthStatus());
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        assertEquals("healthy", carnivore.getHealthStatus());
     }
 
 }

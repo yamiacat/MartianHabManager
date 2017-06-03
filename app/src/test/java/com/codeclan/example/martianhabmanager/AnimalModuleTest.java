@@ -14,13 +14,14 @@ public class AnimalModuleTest {
     @Test
     public void moduleCanAcceptBatchOfAnimals() {
         AnimalModule animalModule = new AnimalModule();
-        Animal animal = new Animal(AnimalSpecies.ARESDOGE);
-        Animal animal2 = new Animal(AnimalSpecies.ARESDOGE);
-        Animal animal3 = new Animal(AnimalSpecies.ARESDOGE);
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        Carnivore carnivore2 = new Carnivore(AnimalSpecies.ARESDOGE);
+        Carnivore carnivore3 = new Carnivore(AnimalSpecies.ARESDOGE);
+
         ArrayList<Animal> batch = new ArrayList<>();
-        batch.add(animal);
-        batch.add(animal2);
-        batch.add(animal3);
+        batch.add(carnivore);
+        batch.add(carnivore2);
+        batch.add(carnivore3);
         animalModule.acceptAnimalBatch(batch, 30);
 
         assertEquals(3, animalModule.animalCount());
@@ -29,13 +30,14 @@ public class AnimalModuleTest {
     @Test
     public void canCountModuleAnimals() {
         AnimalModule animalModule = new AnimalModule();
-        Animal animal = new Animal(AnimalSpecies.ARESDOGE);
-        Animal animal2 = new Animal(AnimalSpecies.ARESDOGE);
-        Animal animal3 = new Animal(AnimalSpecies.ARESDOGE);
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        Carnivore carnivore2 = new Carnivore(AnimalSpecies.ARESDOGE);
+        Carnivore carnivore3 = new Carnivore(AnimalSpecies.ARESDOGE);
+
         ArrayList<Animal> batch = new ArrayList<>();
-        batch.add(animal);
-        batch.add(animal2);
-        batch.add(animal3);
+        batch.add(carnivore);
+        batch.add(carnivore2);
+        batch.add(carnivore3);
         animalModule.acceptAnimalBatch(batch, 30);
 
         assertEquals(3, animalModule.animalCount());
@@ -44,13 +46,14 @@ public class AnimalModuleTest {
     @Test
     public void canGetModuleSize() {
         AnimalModule animalModule = new AnimalModule();
-        Animal animal = new Animal(AnimalSpecies.ARESDOGE);
-        Animal animal2 = new Animal(AnimalSpecies.ARESDOGE);
-        Animal animal3 = new Animal(AnimalSpecies.ARESDOGE);
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        Carnivore carnivore2 = new Carnivore(AnimalSpecies.ARESDOGE);
+        Carnivore carnivore3 = new Carnivore(AnimalSpecies.ARESDOGE);
+
         ArrayList<Animal> batch = new ArrayList<>();
-        batch.add(animal);
-        batch.add(animal2);
-        batch.add(animal3);
+        batch.add(carnivore);
+        batch.add(carnivore2);
+        batch.add(carnivore3);
         animalModule.acceptAnimalBatch(batch, 30);
 
         assertEquals(12, animalModule.getTotalSpace());
@@ -60,13 +63,14 @@ public class AnimalModuleTest {
     @Test
     public void cantOverfillModule() {
         AnimalModule animalModule = new AnimalModule();
-        Animal animal = new Animal(AnimalSpecies.ARESDOGE);
-        Animal animal2 = new Animal(AnimalSpecies.ARESDOGE);
-        Animal animal3 = new Animal(AnimalSpecies.ARESDOGE);
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        Carnivore carnivore2 = new Carnivore(AnimalSpecies.ARESDOGE);
+        Carnivore carnivore3 = new Carnivore(AnimalSpecies.ARESDOGE);
+
         ArrayList<Animal> batch = new ArrayList<>();
-        batch.add(animal);
-        batch.add(animal2);
-        batch.add(animal3);
+        batch.add(carnivore);
+        batch.add(carnivore2);
+        batch.add(carnivore3);
         animalModule.acceptAnimalBatch(batch, 8);
 
         assertEquals(2, animalModule.animalCount());
@@ -77,13 +81,13 @@ public class AnimalModuleTest {
     @Test
     public void canRemoveAnimalsBySpecies() {
         AnimalModule animalModule = new AnimalModule();
-        Animal animal = new Animal(AnimalSpecies.ARESDOGE);
-        Animal animal2 = new Animal(AnimalSpecies.MARTIAN_LOP);
-        Animal animal3 = new Animal(AnimalSpecies.RED_DWARF);
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        Herbivore herbivore1 = new Herbivore(AnimalSpecies.MARTIAN_LOP);
+        Herbivore herbivore2 = new Herbivore(AnimalSpecies.RED_DWARF);
         ArrayList<Animal> batch = new ArrayList<>();
-        batch.add(animal);
-        batch.add(animal2);
-        batch.add(animal3);
+        batch.add(carnivore);
+        batch.add(herbivore1);
+        batch.add(herbivore2);
         animalModule.acceptAnimalBatch(batch, 30);
 
         animalModule.removeSpecies(AnimalSpecies.ARESDOGE.getSpeciesDescription());
@@ -94,13 +98,13 @@ public class AnimalModuleTest {
     @Test
     public void canRemoveAnimalsBySpeciesNotHardcoded() {
         AnimalModule animalModule = new AnimalModule();
-        Animal animal = new Animal(AnimalSpecies.ARESDOGE);
-        Animal animal2 = new Animal(AnimalSpecies.MARTIAN_LOP);
-        Animal animal3 = new Animal(AnimalSpecies.MARTIAN_LOP);
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        Herbivore herbivore1 = new Herbivore(AnimalSpecies.MARTIAN_LOP);
+        Herbivore herbivore2 = new Herbivore(AnimalSpecies.MARTIAN_LOP);
         ArrayList<Animal> batch = new ArrayList<>();
-        batch.add(animal);
-        batch.add(animal2);
-        batch.add(animal3);
+        batch.add(carnivore);
+        batch.add(herbivore1);
+        batch.add(herbivore2);
         animalModule.acceptAnimalBatch(batch, 30);
         animalModule.removeSpecies(AnimalSpecies.MARTIAN_LOP.getSpeciesDescription());
 

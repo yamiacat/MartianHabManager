@@ -4,7 +4,7 @@ package com.codeclan.example.martianhabmanager;
  * Created by user on 27/05/2017.
  */
 
-public class Animal {
+public abstract class Animal {
     private FakeDice dice = new FakeDice(1);
     private DefaultNamer namer = new DefaultNamer(dice);
     private String animalName;

@@ -47,12 +47,12 @@ public class HabTest {
     public void canGetUnusedSpace() {
         Hab hab = new Hab("Capricorn One", 100);
         ArrayList<Animal> animalBatch = new ArrayList<>();
-        Animal animal = new Animal(AnimalSpecies.ARESDOGE);
-        Animal animal2 = new Animal(AnimalSpecies.MARTIAN_LOP);
-        Animal animal3 = new Animal(AnimalSpecies.RED_DWARF);
-        animalBatch.add(animal);
-        animalBatch.add(animal2);
-        animalBatch.add(animal3);
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        Herbivore herbivore1 = new Herbivore(AnimalSpecies.MARTIAN_LOP);
+        Herbivore herbivore2 = new Herbivore(AnimalSpecies.RED_DWARF);
+        animalBatch.add(carnivore);
+        animalBatch.add(herbivore1);
+        animalBatch.add(herbivore2);
         hab.houseAnimals(animalBatch);
 
         assertEquals(93, hab.remainingSpace());
