@@ -10,6 +10,7 @@ public class Animal {
     private String animalName;
     private AnimalSpecies species;
     private int spaceRequired;
+    private int health;
 //    private int maxAge;
 //    private int age;
 //    private String maturity;
@@ -22,6 +23,7 @@ public class Animal {
         this.species = species;
         this.animalName = namer.getDefaultName();
         this.spaceRequired = species.getSpeciesSpaceRequired();
+        this.health = 3;
 
     }
 
@@ -39,5 +41,9 @@ public class Animal {
 
     public int getSpaceRequired() {
         return this.spaceRequired;
+    }
+
+    public int getHealth() {
+        return this.health;
     }
 }

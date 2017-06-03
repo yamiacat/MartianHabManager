@@ -12,15 +12,17 @@ public class Hab {
     private String habName;
     private int size;
     private int structuralStrength;
-    private ArrayList<Animal> animalPopulation;
-    private ArrayList<Crop> cropsGrowing;
+    private AnimalModule animalModule;
+    private CropModule cropModule;
+
 
     public Hab(String habName, int size) {
         this.habName = habName;
         this.size = calculateHabSize(size);
         this.structuralStrength = 110 - this.size;
-        this.animalPopulation = new ArrayList<Animal>();
-        this.cropsGrowing = new ArrayList<Crop>();
+        this.cropModule = new CropModule();
+        this.animalModule = new AnimalModule();
+
 
     }
 
@@ -28,11 +30,9 @@ public class Hab {
         int habSize = 0;
         if (size > 100) {
             habSize = 100;
-        }
-        else if (size < 20) {
+        } else if (size < 20) {
             habSize = 20;
-        }
-        else {
+        } else {
             habSize = size;
         }
         return habSize;
@@ -47,54 +47,28 @@ public class Hab {
         return size;
     }
 
-    // NEED TO RETURN ERROR OR WARNING IF TOO FULL?
-    public void acceptAnimal(Animal animal) {
-        if (this.remainingSpace() >= animal.getSpaceRequired()) {
-            this.animalPopulation.add(animal);
-        }
-    }
 
-    public int animalCount() {
-        return this.animalPopulation.size();
-    }
 
     public int remainingSpace() {
         int remainingSpace = this.size;
-        for (Animal animal : animalPopulation) {
-            remainingSpace -= animal.getSpaceRequired();
-        }
-        for (Crop crop : cropsGrowing) {
-            remainingSpace -= crop.getQuantity();
-        }
+        remainingSpace -= this.animalModule.getTotalSpace();
+        remainingSpace -= this.cropModule.getTotalQuantity();
 
         return remainingSpace;
     }
 
-    public ArrayList<Animal> removeSpecies(String speciesDescription) {
-        ArrayList<Animal> soughtAnimals = new ArrayList<Animal>();
 
-        for (Animal animal : this.animalPopulation) {
-            if (animal.getSpecies().equals(speciesDescription)) {
-                soughtAnimals.add(animal);
-            }
-        }
-        this.animalPopulation.removeAll(soughtAnimals);
-        return soughtAnimals;
-    }
 
     public int getStructuralStrength() {
         return structuralStrength;
     }
 
-    public void acceptAnimalBatch(ArrayList<Animal> batch) {
-        for (Animal animal : batch) {
-            this.animalPopulation.add(animal);
-        }
-    }
 
     public void plantCrops(Crop crop) {
-        if (this.remainingSpace() >= crop.getQuantity()) {
-            this.cropsGrowing.add(crop);
-        }
+        this.cropModule.plantCrop(crop, this.remainingSpace());
+    }
+
+    public void houseAnimals(ArrayList<Animal> animals) {
+        this.animalModule.acceptAnimalBatch(animals, this.remainingSpace());
     }
 }

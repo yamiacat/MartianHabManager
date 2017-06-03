@@ -21,4 +21,24 @@ public class CropTest {
         assertEquals(1, crop.getQuantity());
     }
 
+    @Test
+    public void cropCanGrow() {
+        Crop crop = new Crop(CropSpecies.PHOBOSHROOMS, 10);
+        crop.grow();
+        assertEquals(20, crop.getQuantity());
+    }
+
+    @Test
+    public void canPredictGrownSize() {
+        Crop crop = new Crop(CropSpecies.PHOBOSHROOMS, 10);
+        assertEquals(20, crop.getGrownSize());
+    }
+
+    @Test
+    public void canSetQuantity() {
+        Crop crop = new Crop(CropSpecies.PHOBOSHROOMS, 10);
+        crop.setQuantity(20);
+        assertEquals(20, crop.getQuantity());
+    }
+
 }

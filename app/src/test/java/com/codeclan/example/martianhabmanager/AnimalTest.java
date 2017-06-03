@@ -34,4 +34,10 @@ public class AnimalTest {
         assertEquals(4, animal.getSpaceRequired());
     }
 
+    @Test
+    public void animalsStartWithThreeHealth() {
+        Animal animal = new Animal(AnimalSpecies.ARESDOGE);
+        assertEquals(3, animal.getHealth());
+    }
+
 }
