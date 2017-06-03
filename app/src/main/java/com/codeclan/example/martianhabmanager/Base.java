@@ -9,12 +9,16 @@ import java.util.ArrayList;
 public class Base {
     private String baseName;
     private ArrayList<Hab> allHabs;
+    private FoodStore foodStore;
+    private Player baseCommander;
 
 
     public Base() {
+        this.baseCommander = new Player("Matt Damon");
         this.baseName = "MarsBaseOne";
         this.allHabs = new ArrayList<Hab>();
         startingHabs();
+        this.foodStore = new FoodStore();
     }
 
     private void startingHabs() {

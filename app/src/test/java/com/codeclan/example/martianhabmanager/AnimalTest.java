@@ -40,4 +40,10 @@ public class AnimalTest {
         assertEquals(3, animal.getHealth());
     }
 
+    @Test
+    public void animalsStartWithHealthyStatus() {
+        Animal animal = new Animal(AnimalSpecies.ARESDOGE);
+        assertEquals("healthy", animal.getHealthStatus());
+    }
+
 }

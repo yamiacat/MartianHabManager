@@ -11,6 +11,7 @@ public class Animal {
     private AnimalSpecies species;
     private int spaceRequired;
     private int health;
+    private String healthStatus;
 //    private int maxAge;
 //    private int age;
 //    private String maturity;
@@ -24,7 +25,21 @@ public class Animal {
         this.animalName = namer.getDefaultName();
         this.spaceRequired = species.getSpeciesSpaceRequired();
         this.health = 3;
+        this.healthStatus = calculateHealthStatus();
 
+    }
+
+    private String calculateHealthStatus() {
+        if (3 == this.health) {
+            return "healthy";
+        }
+        else if (2 == this.health) {
+            return "hungry";
+        }
+        else if (1 == this.health) {
+            return "starving";
+        }
+        return null;
     }
 
     public String getSpecies() {
@@ -45,5 +60,9 @@ public class Animal {
 
     public int getHealth() {
         return this.health;
+    }
+
+    public String getHealthStatus() {
+        return this.healthStatus;
     }
 }
