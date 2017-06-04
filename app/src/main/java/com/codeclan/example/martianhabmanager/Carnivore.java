@@ -1,16 +1,26 @@
 package com.codeclan.example.martianhabmanager;
 
-/**
- * Created by user on 03/06/2017.
- */
-
 public class Carnivore extends Animal {
 
 
     private final AnimalSpecies species;
+    private int health;
 
     public Carnivore(AnimalSpecies species) {
         super(species);
         this.species = species;
+        this.health = getHealth();
     }
+
+
+    public void getFed() {
+        if (this.health < 3) {
+            this.health += 1;
+        }
+    }
+
+    public void feedSelf(Hab hab) {
+
+    }
+
 }

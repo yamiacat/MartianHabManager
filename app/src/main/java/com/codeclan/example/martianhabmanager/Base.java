@@ -2,9 +2,6 @@ package com.codeclan.example.martianhabmanager;
 
 import java.util.ArrayList;
 
-/**
- * Created by user on 29/05/2017.
- */
 
 public class Base {
     private String baseName;
@@ -40,5 +37,9 @@ public class Base {
 
     public ArrayList<Hab> checkAllHabs() {
         return new ArrayList<>(this.allHabs);
+    }
+
+    public FoodStore getFoodStore() {
+        return this.foodStore;
     }
 }

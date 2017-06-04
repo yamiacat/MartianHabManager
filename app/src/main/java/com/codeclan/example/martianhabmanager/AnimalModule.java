@@ -10,12 +10,17 @@ public class AnimalModule {
 
     private ArrayList<Animal> animalPopulation;
 
+
     public AnimalModule() {
         this.animalPopulation = new ArrayList<>();
     }
 
     public int animalCount() {
         return this.animalPopulation.size();
+    }
+
+    public ArrayList<Animal> getAnimalPopulation() {
+        return this.animalPopulation;
     }
 
     public int getTotalSpace() {
@@ -48,6 +53,7 @@ public class AnimalModule {
         this.animalPopulation.removeAll(soughtAnimals);
         return soughtAnimals;
     }
+
 
 
 }

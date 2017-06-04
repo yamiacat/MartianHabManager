@@ -1,9 +1,5 @@
 package com.codeclan.example.martianhabmanager;
 
-/**
- * Created by user on 03/06/2017.
- */
-
 public class FoodStore {
     private int meat;
     private int veg;
@@ -19,5 +15,13 @@ public class FoodStore {
 
     public int getVeg() {
         return this.veg;
+    }
+
+    public void eatVeg(int amountEaten) {
+        this.veg -= amountEaten;
+    }
+
+    public void eatMeat(int amountEaten) {
+        this.meat -= amountEaten;
     }
 }

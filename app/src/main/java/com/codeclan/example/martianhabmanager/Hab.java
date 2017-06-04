@@ -1,11 +1,6 @@
 package com.codeclan.example.martianhabmanager;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-
-/**
- * Created by user on 27/05/2017.
- */
 
 public class Hab {
 
@@ -27,7 +22,7 @@ public class Hab {
     }
 
     private int calculateHabSize(int size) {
-        int habSize = 0;
+        int habSize;
         if (size > 100) {
             habSize = 100;
         } else if (size < 20) {
@@ -70,5 +65,13 @@ public class Hab {
 
     public void houseAnimals(ArrayList<Animal> animals) {
         this.animalModule.acceptAnimalBatch(animals, this.remainingSpace());
+    }
+
+    public AnimalModule getAnimalModule() {
+        return this.animalModule;
+    }
+
+    public CropModule getCropModule() {
+        return this.cropModule;
     }
 }

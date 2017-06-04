@@ -4,9 +4,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by user on 03/06/2017.
- */
 public class FoodStoreTest {
 
     @Test
@@ -20,5 +17,37 @@ public class FoodStoreTest {
         FoodStore foodStore = new FoodStore();
         assertEquals(50, foodStore.getVeg());
     }
+
+    @Test
+    public void bunniesEatVeg() {
+        FoodStore foodStore = new FoodStore();
+        Herbivore bunny = new Herbivore(AnimalSpecies.MARTIAN_LOP);
+
+        foodStore.eatVeg(bunny.getSpaceRequired());
+
+        assertEquals(48, foodStore.getVeg());
+    }
+
+
+    @Test
+    public void bunniesEatVegNotHardcoded() {
+        FoodStore foodStore = new FoodStore();
+        Herbivore bunny = new Herbivore(AnimalSpecies.RED_DWARF);
+
+        foodStore.eatVeg(bunny.getSpaceRequired());
+
+        assertEquals(49, foodStore.getVeg());
+    }
+
+    @Test
+    public void dogesEatMeat() {
+        FoodStore foodStore = new FoodStore();
+        Carnivore wow = new Carnivore(AnimalSpecies.ARESDOGE);
+
+        foodStore.eatMeat(wow.getSpaceRequired());
+
+        assertEquals(46, foodStore.getMeat());
+    }
+
 
 }

@@ -1,9 +1,5 @@
 package com.codeclan.example.martianhabmanager;
 
-/**
- * Created by user on 27/05/2017.
- */
-
 public abstract class Animal {
     private FakeDice dice = new FakeDice(1);
     private DefaultNamer namer = new DefaultNamer(dice);
@@ -18,7 +14,6 @@ public abstract class Animal {
 //    private int fecundity;
 //    private int o2Required;
 //    private int nutritionalValue;
-
 
     public Animal(AnimalSpecies species) {
         this.species = species;
@@ -65,4 +60,8 @@ public abstract class Animal {
     public String getHealthStatus() {
         return this.healthStatus;
     }
+
+    public abstract void getFed();
+
+    public abstract void feedSelf(Hab hab);
 }

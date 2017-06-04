@@ -27,4 +27,10 @@ public class BaseTest {
         Base base = new Base();
         assertEquals(3, base.checkAllHabs().size());
     }
+
+    @Test
+    public void canGetFoodStore() {
+        Base base = new Base();
+        assertEquals(FoodStore.class, base.getFoodStore().getClass());
+    }
 }

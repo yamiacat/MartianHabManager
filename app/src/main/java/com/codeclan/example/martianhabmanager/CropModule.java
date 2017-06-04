@@ -2,9 +2,6 @@ package com.codeclan.example.martianhabmanager;
 
 import java.util.ArrayList;
 
-/**
- * Created by user on 02/06/2017.
- */
 
 public class CropModule {
     private ArrayList<Crop> cropsGrowing;
