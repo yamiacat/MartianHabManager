@@ -30,10 +30,15 @@ public class Herbivore extends Animal {
         else if (2 == getHealth() && hab.getCropModule().getTotalQuantity() >= this.getResourcesRequired()) {
                 feedSelf(hab.getCropModule());
             }
-        else {
+        else if (2 == getHealth() && hab.getCropModule().getTotalQuantity() < this.getResourcesRequired()) {
             setHealth(getHealth()-1);
         }
-
+        else if (1 == getHealth() && hab.getCropModule().getTotalQuantity() >= this.getResourcesRequired()) {
+            feedSelf(hab.getCropModule());
+        }
+        else if (1 == getHealth() && hab.getCropModule().getTotalQuantity() < this.getResourcesRequired()) {
+            setHealth(getHealth()-1);
+        }
     }
 
     private void feedSelf(CropModule crops) {
