@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class CropModule {
     private ArrayList<Crop> cropsGrowing;
 
+
     public CropModule() {
         this.cropsGrowing = new ArrayList<>();
     }
@@ -49,5 +50,9 @@ public class CropModule {
 
     public int cropSpeciesCount() {
         return this.cropsGrowing.size();
+    }
+
+    public ArrayList<Crop> getCropsGrowing() {
+        return this.cropsGrowing;
     }
 }

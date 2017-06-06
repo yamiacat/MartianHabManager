@@ -69,5 +69,5 @@ public abstract class Animal {
     }
 
 
-    public abstract void feedSelf(Hab hab);
+    public abstract void goHungry(Hab hab);
 }

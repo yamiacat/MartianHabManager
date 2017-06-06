@@ -32,7 +32,7 @@ public class HabFeeder {
             }
             else if ((animal.getClass() == Herbivore.class) &&
                     (animal.getResourcesRequired() > foodStore.getVeg())) {
-                animal.feedSelf(hab);
+                animal.goHungry(hab);
             }
             else if ((animal.getClass() == Carnivore.class) &&
                     (animal.getResourcesRequired() <= foodStore.getMeat())) {
@@ -41,7 +41,7 @@ public class HabFeeder {
             }
             else if ((animal.getClass() == Carnivore.class) &&
                     (animal.getResourcesRequired() > foodStore.getMeat())) {
-                animal.feedSelf(hab);
+                animal.goHungry(hab);
             }
         }
     }

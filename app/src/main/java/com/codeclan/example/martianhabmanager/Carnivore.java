@@ -21,7 +21,7 @@ public class Carnivore extends Animal {
         }
     }
 //TODO!
-    public void feedSelf(Hab hab) {
+    public void goHungry(Hab hab) {
 
     }
 

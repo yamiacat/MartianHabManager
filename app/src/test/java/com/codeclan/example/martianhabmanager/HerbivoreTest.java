@@ -23,38 +23,49 @@ public class HerbivoreTest {
 
 
     @Test
-    public void healthyHerbivoreLeftToFeedSelfLosesOneHealth() {
+    public void healthyHerbivoreLeftToGoHungryLosesOneHealth() {
         Herbivore herbivore = new Herbivore(AnimalSpecies.MARTIAN_LOP);
         Hab hab = new Hab("Capricorn One", 100);
 
-        herbivore.feedSelf(hab);
+        herbivore.goHungry(hab);
 
         assertEquals(2, herbivore.getHealth());
     }
 
     @Test
-    public void healthyHerbivoreLeftToFeedSelfBecomesHungry() {
+    public void healthyHerbivoreLeftToGoHungryBecomesHungry() {
         Herbivore herbivore = new Herbivore(AnimalSpecies.MARTIAN_LOP);
         Hab hab = new Hab("Capricorn One", 100);
 
-        herbivore.feedSelf(hab);
+        herbivore.goHungry(hab);
 
         assertEquals("hungry", herbivore.getHealthStatus());
     }
 
     @Test
-    public void hungryHerbivoreLeftToFeedSelfBecomesStarving() {
+    public void hungryHerbivoreLeftToGoHungryBecomesStarving() {
         Herbivore herbivore = new Herbivore(AnimalSpecies.MARTIAN_LOP);
         Hab hab = new Hab("Capricorn One", 100);
 
-        herbivore.feedSelf(hab);
+        herbivore.goHungry(hab);
         assertEquals("hungry", herbivore.getHealthStatus());
 
-        herbivore.feedSelf(hab);
+        herbivore.goHungry(hab);
         assertEquals("starving", herbivore.getHealthStatus());
     }
 
+    @Test
+    public void hungryHerbivoreLeftToFeedSelfRaidsCrops() {
+        Herbivore herbivore = new Herbivore(AnimalSpecies.MARTIAN_LOP);
+        Hab hab = new Hab("Capricorn One", 100);
+        Crop crop = new Crop(CropSpecies.RED_ALGAE, 10);
+        hab.plantCrops(crop);
 
+        herbivore.goHungry(hab);
+        herbivore.goHungry(hab);
+        assertEquals("healthy", herbivore.getHealthStatus());
+        assertEquals(6, crop.getQuantity());
+    }
 
 
 }
