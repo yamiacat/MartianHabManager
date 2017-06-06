@@ -4,21 +4,23 @@ public class Carnivore extends Animal {
 
 
     private final AnimalSpecies species;
-    private int health;
+
 
     public Carnivore(AnimalSpecies species) {
         super(species);
         this.species = species;
-        this.health = getHealth();
+
     }
+
+
 
 
     public void getFed() {
-        if (this.health < 3) {
-            this.health += 1;
+        if (getHealth() < 3) {
+            setHealth(getHealth() + 1);
         }
     }
-
+//TODO!
     public void feedSelf(Hab hab) {
 
     }

@@ -1,9 +1,5 @@
 package com.codeclan.example.martianhabmanager;
 
-/**
- * Created by user on 29/05/2017.
- */
-
 public class Player {
     private String playerName;
     private int actionUnits;

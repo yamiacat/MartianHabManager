@@ -6,9 +6,6 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by user on 02/06/2017.
- */
 public class AnimalModuleTest {
 
     @Test

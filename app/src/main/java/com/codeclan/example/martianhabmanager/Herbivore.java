@@ -4,24 +4,35 @@ public class Herbivore extends Animal {
 
     private final AnimalSpecies species;
 
-    private int health;
 
     public Herbivore(AnimalSpecies species) {
         super(species);
         this.species = species;
-        this.health = getHealth();
+
     }
 
+
+
+
     public void getFed() {
-        if (this.health < 3) {
-            this.health += 1;
+        if (getHealth() < 3) {
+            setHealth(getHealth() + 1);
         }
     }
 
     //TODO!
     public void feedSelf(Hab hab) {
-        if (hab.getCropModule().getTotalQuantity() >= this.getSpaceRequired()) {
+        if (3 == getHealth()) {
+            setHealth(getHealth()-1);
         }
+        else if (2 == getHealth()) {
+            setHealth(getHealth()-1);
+        }
+
+
+//        if (hab.getCropModule().getTotalQuantity() >= this.getResourcesRequired()) {
+//        }
     }
+
 
 }

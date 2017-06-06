@@ -1,9 +1,5 @@
 package com.codeclan.example.martianhabmanager;
 
-/**
- * Created by user on 29/05/2017.
- */
-
 public enum CropSpecies {
     PHOBOSHROOMS("Phoboshrooms", 100),
     WHITE_FLUFF("White Fluff", 70),

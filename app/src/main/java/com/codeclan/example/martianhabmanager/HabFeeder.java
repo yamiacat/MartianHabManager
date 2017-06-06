@@ -1,12 +1,7 @@
 package com.codeclan.example.martianhabmanager;
 
-/**
- * Created by user on 04/06/2017.
- */
 
 public class HabFeeder {
-
-
 
 
 
@@ -17,10 +12,10 @@ public class HabFeeder {
 
         for (Animal animal : hab.getAnimalModule().getAnimalPopulation()) {
             if (animal.getClass() == Herbivore.class) {
-                herbivoreHunger += animal.getSpaceRequired();
+                herbivoreHunger += animal.getResourcesRequired();
             }
             else if (animal.getClass() == Carnivore.class) {
-                carnivoreHunger += animal.getSpaceRequired();
+                carnivoreHunger += animal.getResourcesRequired();
             }
         }
         hungerReport += carnivoreHunger + ", Herbivore requirement = " + herbivoreHunger + ".";
@@ -31,21 +26,21 @@ public class HabFeeder {
     public void feedAnimals(FoodStore foodStore, Hab hab) {
         for (Animal animal : hab.getAnimalModule().getAnimalPopulation()) {
             if ((animal.getClass() == Herbivore.class) &&
-                    (animal.getSpaceRequired() <= foodStore.getVeg())) {
+                    (animal.getResourcesRequired() <= foodStore.getVeg())) {
                 animal.getFed();
-                foodStore.eatVeg(animal.getSpaceRequired());
+                foodStore.eatVeg(animal.getResourcesRequired());
             }
             else if ((animal.getClass() == Herbivore.class) &&
-                    (animal.getSpaceRequired() > foodStore.getVeg())) {
+                    (animal.getResourcesRequired() > foodStore.getVeg())) {
                 animal.feedSelf(hab);
             }
             else if ((animal.getClass() == Carnivore.class) &&
-                    (animal.getSpaceRequired() <= foodStore.getMeat())) {
+                    (animal.getResourcesRequired() <= foodStore.getMeat())) {
                 animal.getFed();
-                foodStore.eatMeat(animal.getSpaceRequired());
+                foodStore.eatMeat(animal.getResourcesRequired());
             }
             else if ((animal.getClass() == Carnivore.class) &&
-                    (animal.getSpaceRequired() > foodStore.getMeat())) {
+                    (animal.getResourcesRequired() > foodStore.getMeat())) {
                 animal.feedSelf(hab);
             }
         }

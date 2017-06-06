@@ -1,9 +1,5 @@
 package com.codeclan.example.martianhabmanager;
 
-/**
- * Created by user on 27/05/2017.
- */
-
 public class DefaultNamer {
     private String defaultName;
     private String[] nameElement1 = {

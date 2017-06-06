@@ -2,10 +2,6 @@ package com.codeclan.example.martianhabmanager;
 
 import java.util.ArrayList;
 
-/**
- * Created by user on 02/06/2017.
- */
-
 public class AnimalModule {
 
     private ArrayList<Animal> animalPopulation;
@@ -26,7 +22,7 @@ public class AnimalModule {
     public int getTotalSpace() {
         int totalSpace = 0;
         for (Animal animal : this.animalPopulation) {
-            totalSpace += animal.getSpaceRequired();
+            totalSpace += animal.getResourcesRequired();
         }
         return totalSpace;
     }
@@ -34,9 +30,9 @@ public class AnimalModule {
 
     public void acceptAnimalBatch(ArrayList<Animal> batch, int remainingSize) {
         for (Animal animal : batch) {
-            if (remainingSize >= animal.getSpaceRequired()) {
+            if (remainingSize >= animal.getResourcesRequired()) {
                 this.animalPopulation.add(animal);
-                remainingSize -= animal.getSpaceRequired();
+                remainingSize -= animal.getResourcesRequired();
             }
         }
 

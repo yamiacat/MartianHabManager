@@ -4,9 +4,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by user on 27/05/2017.
- */
 public class AnimalTest {
 
     @Test
@@ -31,7 +28,7 @@ public class AnimalTest {
     @Test
     public void canGetAnimalSpaceRequired() {
         Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
-        assertEquals(4, carnivore.getSpaceRequired());
+        assertEquals(4, carnivore.getResourcesRequired());
     }
 
     @Test

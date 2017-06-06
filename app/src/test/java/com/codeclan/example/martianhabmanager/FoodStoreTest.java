@@ -23,7 +23,7 @@ public class FoodStoreTest {
         FoodStore foodStore = new FoodStore();
         Herbivore bunny = new Herbivore(AnimalSpecies.MARTIAN_LOP);
 
-        foodStore.eatVeg(bunny.getSpaceRequired());
+        foodStore.eatVeg(bunny.getResourcesRequired());
 
         assertEquals(48, foodStore.getVeg());
     }
@@ -34,7 +34,7 @@ public class FoodStoreTest {
         FoodStore foodStore = new FoodStore();
         Herbivore bunny = new Herbivore(AnimalSpecies.RED_DWARF);
 
-        foodStore.eatVeg(bunny.getSpaceRequired());
+        foodStore.eatVeg(bunny.getResourcesRequired());
 
         assertEquals(49, foodStore.getVeg());
     }
@@ -44,7 +44,7 @@ public class FoodStoreTest {
         FoodStore foodStore = new FoodStore();
         Carnivore wow = new Carnivore(AnimalSpecies.ARESDOGE);
 
-        foodStore.eatMeat(wow.getSpaceRequired());
+        foodStore.eatMeat(wow.getResourcesRequired());
 
         assertEquals(46, foodStore.getMeat());
     }

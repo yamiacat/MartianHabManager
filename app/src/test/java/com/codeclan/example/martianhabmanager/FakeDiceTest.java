@@ -4,9 +4,6 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by user on 27/05/2017.
- */
 public class FakeDiceTest {
 
     @Test
@@ -22,4 +19,4 @@ public class FakeDiceTest {
     }
 
 
-    }
+}
