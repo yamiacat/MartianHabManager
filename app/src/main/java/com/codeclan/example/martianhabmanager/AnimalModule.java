@@ -51,5 +51,13 @@ public class AnimalModule {
     }
 
 
-
+    public int herbivoreFleshAmount() {
+        int herbivoreFleshAmount = 0;
+        for (Animal animal : this.animalPopulation) {
+            if (animal.getClass() == Herbivore.class) {
+                herbivoreFleshAmount += animal.getResourcesRequired();
+            }
+        }
+    return herbivoreFleshAmount;
+    }
 }

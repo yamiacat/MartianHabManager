@@ -21,5 +21,42 @@ public class CarnivoreTest {
         assertEquals("Ares Doge", carnivore.getSpecies());
     }
 
+//ACTUAL TESTS
+
+    @Test
+    public void healthyCarnivoreLeftToGoHungryLosesOneHealth() {
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        Hab hab = new Hab("Capricorn One", 100);
+
+        carnivore.goHungry(hab);
+
+        assertEquals(2, carnivore.getHealth());
+    }
+
+    @Test
+    public void hungryCarnivoreLeftToGoHungryBecomesStarving() {
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        Hab hab = new Hab("Capricorn One", 100);
+
+        carnivore.goHungry(hab);
+        carnivore.goHungry(hab);
+
+        assertEquals("starving", carnivore.getHealthStatus());
+    }
+
+    @Test
+    public void carnivoresLeftToGoHungryDieSadFace() {
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        Hab hab = new Hab("Capricorn One", 100);
+
+        carnivore.goHungry(hab);
+        carnivore.goHungry(hab);
+        carnivore.goHungry(hab);
+
+        assertEquals("dead", carnivore.getHealthStatus());
+    }
+
+
+
 
 }

@@ -24,6 +24,8 @@ public class HerbivoreTest {
     }
 
 
+    //ACTUAL TESTS
+
     @Test
     public void healthyHerbivoreLeftToGoHungryLosesOneHealth() {
         Herbivore herbivore = new Herbivore(AnimalSpecies.MARTIAN_LOP);

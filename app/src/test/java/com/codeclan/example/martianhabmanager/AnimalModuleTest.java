@@ -108,4 +108,36 @@ public class AnimalModuleTest {
         assertEquals(1, animalModule.animalCount());
     }
 
+    @Test
+    public void canDetectAmountOfHerbivoreFlesh() {
+        AnimalModule animalModule = new AnimalModule();
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        Herbivore herbivore1 = new Herbivore(AnimalSpecies.MARTIAN_LOP);
+        Herbivore herbivore2 = new Herbivore(AnimalSpecies.MARTIAN_LOP);
+        ArrayList<Animal> batch = new ArrayList<>();
+        batch.add(carnivore);
+        batch.add(herbivore1);
+        batch.add(herbivore2);
+        animalModule.acceptAnimalBatch(batch, 30);
+
+
+        assertEquals(4, animalModule.herbivoreFleshAmount());
+    }
+
+    @Test
+    public void canDetectAmountOfHerbivoreFleshNotHardcoded() {
+        AnimalModule animalModule = new AnimalModule();
+        Herbivore herbivore1 = new Herbivore(AnimalSpecies.MARTIAN_LOP);
+        Herbivore herbivore2 = new Herbivore(AnimalSpecies.MARTIAN_LOP);
+        Herbivore herbivore3 = new Herbivore(AnimalSpecies.RED_DWARF);
+        ArrayList<Animal> batch = new ArrayList<>();
+        batch.add(herbivore3);
+        batch.add(herbivore1);
+        batch.add(herbivore2);
+        animalModule.acceptAnimalBatch(batch, 30);
+
+
+        assertEquals(5, animalModule.herbivoreFleshAmount());
+    }
+
 }

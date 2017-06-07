@@ -22,7 +22,6 @@ public class Herbivore extends Animal {
         }
     }
 
-    //TODO!
     public void goHungry(Hab hab) {
         if (3 == getHealth()) {
             setHealth(getHealth()-1);
