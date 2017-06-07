@@ -4,6 +4,7 @@ public abstract class Animal {
     private FakeDice dice = new FakeDice(1);
     private DefaultNamer namer = new DefaultNamer(dice);
     private MaxAgeGenerator maxAgeGenerator = new MaxAgeGenerator(dice);
+    private SexGenerator sexGenerator = new SexGenerator(dice);
     private String animalName;
     private AnimalSpecies species;
     private int resourcesRequired;
@@ -12,6 +13,7 @@ public abstract class Animal {
     private int maxAge;
     private int age;
     private String maturity;
+    private Sex sex;
 //    private int fecundity;
 //    private int o2Required;
 //    private int nutritionalValue;
@@ -25,7 +27,11 @@ public abstract class Animal {
         this.age = 0;
         this.maxAge = maxAgeGenerator.getMaxAge(species);
         this.maturity = calculateMaturity();
+        this.sex = determineSex();
+    }
 
+    private Sex determineSex() {
+        return sexGenerator.getSex();
     }
 
     private String calculateMaturity() {
@@ -104,5 +110,9 @@ public abstract class Animal {
 
     public void setAge(int newAge) {
         this.age = newAge;
+    }
+
+    public Sex getSex() {
+        return this.sex;
     }
 }

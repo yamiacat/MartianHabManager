@@ -76,5 +76,12 @@ public class AnimalTest {
         assertEquals("mature", carnivore.getMaturity());
     }
 
+    @Test
+    public void canGetSex() {
+        Herbivore herbivore = new Herbivore(AnimalSpecies.MARTIAN_LOP);
+        assertEquals("female", herbivore.getSex().getSexDescription());
+
+    }
+
 
 }

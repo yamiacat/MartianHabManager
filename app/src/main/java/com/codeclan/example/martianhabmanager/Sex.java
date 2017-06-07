@@ -1,8 +1,8 @@
 package com.codeclan.example.martianhabmanager;
 
 public enum Sex {
-    FEMALE("Female"),
-    MALE("Male");
+    FEMALE("female"),
+    MALE("male");
 
 
     private final String sexDescription;
