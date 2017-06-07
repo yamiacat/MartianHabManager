@@ -26,16 +26,10 @@ public class Herbivore extends Animal {
         if (3 == getHealth()) {
             setHealth(getHealth()-1);
         }
-        else if (2 == getHealth() && hab.getCropModule().getTotalQuantity() >= this.getResourcesRequired()) {
+        else if (2 >= getHealth() && hab.getCropModule().getTotalQuantity() >= this.getResourcesRequired()) {
                 feedSelf(hab.getCropModule());
             }
-        else if (2 == getHealth() && hab.getCropModule().getTotalQuantity() < this.getResourcesRequired()) {
-            setHealth(getHealth()-1);
-        }
-        else if (1 == getHealth() && hab.getCropModule().getTotalQuantity() >= this.getResourcesRequired()) {
-            feedSelf(hab.getCropModule());
-        }
-        else if (1 == getHealth() && hab.getCropModule().getTotalQuantity() < this.getResourcesRequired()) {
+        else if (2 >= getHealth() && hab.getCropModule().getTotalQuantity() < this.getResourcesRequired()) {
             setHealth(getHealth()-1);
         }
     }
@@ -44,7 +38,6 @@ public class Herbivore extends Animal {
         int hunger = (getResourcesRequired() * (4 - getHealth()));
         ArrayList<Crop> devoured = new ArrayList<>();
 
-        while (hunger > 0) {
             for (Crop crop : crops.getCropsGrowing()) {
                 if (crop.getQuantity() > hunger) {
                     crop.setQuantity(crop.getQuantity() - hunger);
@@ -57,7 +50,7 @@ public class Herbivore extends Animal {
                     setHealth(getHealth()+1);
                 }
             }
-        }
+
         crops.getCropsGrowing().removeAll(devoured);
     }
 

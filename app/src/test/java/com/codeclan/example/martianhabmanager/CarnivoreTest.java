@@ -2,6 +2,8 @@ package com.codeclan.example.martianhabmanager;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 public class CarnivoreTest {
@@ -57,6 +59,40 @@ public class CarnivoreTest {
     }
 
 
+    @Test
+    public void hungryCarnivoreLeftToFeedSelfEatsHerbivores() {
+        ArrayList<Animal> batch = new ArrayList<>();
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        Herbivore herbivore = new Herbivore(AnimalSpecies.MARTIAN_LOP);
+        Herbivore herbivore2 = new Herbivore(AnimalSpecies.MARTIAN_LOP);
+        Hab hab = new Hab("Capricorn One", 100);
+        batch.add(herbivore);
+        batch.add(herbivore2);
+        batch.add(carnivore);
+        hab.houseAnimals(batch);
 
+        carnivore.goHungry(hab);
+        carnivore.goHungry(hab);
+        assertEquals("healthy", carnivore.getHealthStatus());
+        assertEquals(1, hab.getAnimalModule().animalCount());
+        assertEquals(3, carnivore.getHealth());
+    }
+
+    @Test
+    public void hungryCarnivoreWithoutEnoughHerbivoresToEatStillStarves() {
+        ArrayList<Animal> batch = new ArrayList<>();
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        Herbivore herbivore = new Herbivore(AnimalSpecies.MARTIAN_LOP);
+        Hab hab = new Hab("Capricorn One", 100);
+        batch.add(herbivore);
+        batch.add(carnivore);
+        hab.houseAnimals(batch);
+
+        carnivore.goHungry(hab);
+        carnivore.goHungry(hab);
+        assertEquals("hungry", carnivore.getHealthStatus());
+        assertEquals(1, hab.getAnimalModule().animalCount());
+        assertEquals(2, carnivore.getHealth());
+    }
 
 }

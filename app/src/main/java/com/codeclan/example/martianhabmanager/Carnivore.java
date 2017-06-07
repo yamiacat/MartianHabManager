@@ -1,5 +1,7 @@
 package com.codeclan.example.martianhabmanager;
 
+import java.util.ArrayList;
+
 public class Carnivore extends Animal {
 
 
@@ -20,7 +22,7 @@ public class Carnivore extends Animal {
             setHealth(getHealth() + 1);
         }
     }
-//TODO!
+
     public void goHungry(Hab hab) {
         if (3 == getHealth()) {
             setHealth(getHealth()-1);
@@ -34,6 +36,20 @@ public class Carnivore extends Animal {
     }
 
     private void feedSelf(AnimalModule animalModule) {
+        int hunger = (getResourcesRequired() * (4 - getHealth()));
+        int consumedFlesh = 0;
+        ArrayList<Animal> devoured = new ArrayList<>();
+
+            for (Animal animal : animalModule.getAnimalPopulation()) {
+                if (animal.getClass() == Herbivore.class) {
+                    hunger -= animal.getResourcesRequired();
+                    consumedFlesh += animal.getResourcesRequired();
+                    devoured.add(animal);
+                }
+            }
+
+        animalModule.getAnimalPopulation().removeAll(devoured);
+        setHealth(getHealth() + (consumedFlesh / getResourcesRequired()));
     }
 
 }
