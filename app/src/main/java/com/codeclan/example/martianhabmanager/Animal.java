@@ -11,7 +11,7 @@ public abstract class Animal {
     private String healthStatus;
     private int maxAge;
     private int age;
-//    private String maturity;
+    private String maturity;
 //    private int fecundity;
 //    private int o2Required;
 //    private int nutritionalValue;
@@ -24,7 +24,20 @@ public abstract class Animal {
         this.healthStatus = calculateHealthStatus();
         this.age = 0;
         this.maxAge = maxAgeGenerator.getMaxAge(species);
+        this.maturity = calculateMaturity();
 
+    }
+
+    private String calculateMaturity() {
+        if (getAge() < (getMaxAge()/8)) {
+            return "immature";
+        }
+        else if (getAge() > (getMaxAge() - (getMaxAge()/8))) {
+            return "past breeding";
+        }
+        else {
+            return "mature";
+        }
     }
 
 
@@ -83,5 +96,13 @@ public abstract class Animal {
 
     public int getMaxAge() {
         return this.maxAge;
+    }
+
+    public String getMaturity() {
+        return calculateMaturity();
+    }
+
+    public void setAge(int newAge) {
+        this.age = newAge;
     }
 }

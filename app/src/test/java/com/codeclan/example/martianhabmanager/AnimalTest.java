@@ -55,4 +55,26 @@ public class AnimalTest {
         assertEquals(33, carnivore.getMaxAge());
     }
 
+    @Test
+    public void newAnimalsStartAsImmature() {
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        assertEquals("immature", carnivore.getMaturity());
+    }
+
+    @Test
+    public void canSetAnimalAge() {
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        carnivore.setAge(31);
+        assertEquals(31, carnivore.getAge());
+        assertEquals("past breeding", carnivore.getMaturity());
+    }
+
+    @Test
+    public void middleAgeAnimalsAreMature() {
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        carnivore.setAge(20);
+        assertEquals("mature", carnivore.getMaturity());
+    }
+
+
 }
