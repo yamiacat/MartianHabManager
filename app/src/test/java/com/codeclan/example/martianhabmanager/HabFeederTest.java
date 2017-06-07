@@ -62,8 +62,26 @@ public class HabFeederTest {
 
         habFeeder.feedAnimals(foodStore, hab);
 
-
         assertEquals(47, foodStore.getVeg());
+    }
+
+    @Test
+    public void deadHerbivoresGetRemoved() {
+        HabFeeder habFeeder = new HabFeeder();
+        FoodStore foodStore = new FoodStore();
+        Herbivore herbivore = new Herbivore(AnimalSpecies.MARTIAN_LOP);
+        Hab hab = new Hab("Capricorn One", 100);
+        ArrayList<Animal> batch = new ArrayList<>();
+        batch.add(herbivore);
+        hab.houseAnimals(batch);
+
+        herbivore.goHungry(hab);
+        herbivore.goHungry(hab);
+        herbivore.goHungry(hab);
+        habFeeder.harvestCorpses(foodStore, hab);
+
+        assertEquals(0, hab.getAnimalModule().animalCount());
+        assertEquals(52, foodStore.getMeat());
     }
 
 }

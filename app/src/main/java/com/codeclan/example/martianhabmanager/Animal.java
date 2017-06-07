@@ -28,7 +28,10 @@ public abstract class Animal {
     public abstract void getFed();
 
     private String calculateHealthStatus() {
-        if (1 == this.health) {
+        if (0 == this.health) {
+            return "dead";
+        }
+        else if (1 == this.health) {
             return "starving";
         }
         else if (2 == this.health) {

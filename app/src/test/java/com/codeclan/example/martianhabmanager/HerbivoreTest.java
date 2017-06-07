@@ -138,7 +138,9 @@ public class HerbivoreTest {
         assertEquals("starving", herbivore.getHealthStatus());
 
         herbivore.goHungry(hab);
-        assertEquals(0, hab.getAnimalModule().animalCount());
+        assertEquals("dead", herbivore.getHealthStatus());
     }
+
+
 
 }

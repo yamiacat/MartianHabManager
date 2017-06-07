@@ -1,6 +1,8 @@
 package com.codeclan.example.martianhabmanager;
 
 
+import java.util.ArrayList;
+
 public class HabFeeder {
 
 
@@ -44,5 +46,16 @@ public class HabFeeder {
                 animal.goHungry(hab);
             }
         }
+    }
+
+    public void harvestCorpses(FoodStore foodStore, Hab hab) {
+        ArrayList<Animal> deadAnimals = new ArrayList<>();
+        for (Animal animal : hab.getAnimalModule().getAnimalPopulation()) {
+            if (0 == animal.getHealth()) {
+                deadAnimals.add(animal);
+                foodStore.addMeat(animal.getResourcesRequired());
+            }
+        }
+    hab.getAnimalModule().getAnimalPopulation().removeAll(deadAnimals);
     }
 }

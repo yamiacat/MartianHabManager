@@ -24,4 +24,8 @@ public class FoodStore {
     public void eatMeat(int amountEaten) {
         this.meat -= amountEaten;
     }
+
+    public void addMeat(int harvestedCorpse) {
+        this.meat += harvestedCorpse;
+    }
 }
