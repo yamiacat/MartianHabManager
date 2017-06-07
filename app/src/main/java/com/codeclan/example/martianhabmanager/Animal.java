@@ -3,13 +3,14 @@ package com.codeclan.example.martianhabmanager;
 public abstract class Animal {
     private FakeDice dice = new FakeDice(1);
     private DefaultNamer namer = new DefaultNamer(dice);
+    private MaxAgeGenerator maxAgeGenerator = new MaxAgeGenerator(dice);
     private String animalName;
     private AnimalSpecies species;
     private int resourcesRequired;
     private int health;
     private String healthStatus;
-//    private int maxAge;
-//    private int age;
+    private int maxAge;
+    private int age;
 //    private String maturity;
 //    private int fecundity;
 //    private int o2Required;
@@ -21,6 +22,8 @@ public abstract class Animal {
         this.resourcesRequired = species.getSpeciesResourcesRequired();
         this.health = 3;
         this.healthStatus = calculateHealthStatus();
+        this.age = 0;
+        this.maxAge = maxAgeGenerator.getMaxAge(species);
 
     }
 
@@ -73,4 +76,12 @@ public abstract class Animal {
 
 
     public abstract void goHungry(Hab hab);
+
+    public int getAge() {
+        return this.age;
+    }
+
+    public int getMaxAge() {
+        return this.maxAge;
+    }
 }

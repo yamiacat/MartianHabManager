@@ -43,4 +43,16 @@ public class AnimalTest {
         assertEquals("healthy", carnivore.getHealthStatus());
     }
 
+    @Test
+    public void newAnimalsStartWithAge0() {
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        assertEquals(0, carnivore.getAge());
+    }
+
+    @Test
+    public void newAnimalsStartWithRollableMaxAge() {
+        Carnivore carnivore = new Carnivore(AnimalSpecies.ARESDOGE);
+        assertEquals(33, carnivore.getMaxAge());
+    }
+
 }

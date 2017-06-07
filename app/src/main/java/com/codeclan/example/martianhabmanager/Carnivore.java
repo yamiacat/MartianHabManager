@@ -52,4 +52,5 @@ public class Carnivore extends Animal {
         setHealth(getHealth() + (consumedFlesh / getResourcesRequired()));
     }
 
+
 }
