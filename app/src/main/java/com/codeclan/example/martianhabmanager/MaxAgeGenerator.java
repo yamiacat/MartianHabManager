@@ -1,7 +1,7 @@
 package com.codeclan.example.martianhabmanager;
 
 
-class MaxAgeGenerator {
+public class MaxAgeGenerator {
     private int maxAge;
     private Rollable dice;
 
